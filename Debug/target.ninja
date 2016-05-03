@@ -1,4 +1,4 @@
-build main_build: phony ebook
+build main_build: phony ebook res
 build all: phony main_build
 default all
 edje-cc-options = -deps
