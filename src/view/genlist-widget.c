@@ -25,7 +25,7 @@
 #include "utils/common-utils.h"
 #include "utils/app-types.h"
 #include "main-app.h"
-
+#include "view/txt.h"
 #define MIN_FILE_TYPE_ICON_SIZE ELM_SCALE_SIZE(10)
 
 //static const char *const LABEL_TEXT_SELECT_ALL = "Select All";
@@ -236,7 +236,10 @@ static void _genlist_widget_item_sel_cb(void *data, Evas_Object *obj, void *even
             node_info *pNode = elm_object_item_data_get(event_info);
             if (pNode->type == FILE_TYPE_DIR) {
                 list_view_add(app, widget->view->navi, widget->view->curr_path, pNode->name);
-            } else {
+            } else if (pNode->type == FILE_TYPE_TXT) {
+            	txt_view_add(app, widget->view->navi, widget->view->curr_path, pNode->name, pNode);
+            }
+            else {
                 model_utils_launch_file(pNode);
             }
         }

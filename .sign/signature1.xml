@@ -4,15 +4,19 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>RJ+3P1JYHZ5EZZzijXEUluTNBkOMVd0mzboni/WSjWg=</DigestValue>
+<DigestValue>r4Kp4haxrPc3ZK/LiClfu7aaSbQkA2JOAqtaPCeXb88=</DigestValue>
 </Reference>
 <Reference URI="bin%2Febook">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>sEgGGTKJfSBK1plNJn0M8DF3a32XMHRXIhDizQaojH8=</DigestValue>
+<DigestValue>L+whVmTQmIgki2nCSv393QEfR7mTQe5VDgKT6IDPipE=</DigestValue>
 </Reference>
 <Reference URI="res%2Fedje%2Ffilelist.edj">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>XigLl6fbrlFd905KVCMbhLcQZ2FtceRgW56OtmSIVu8=</DigestValue>
+</Reference>
+<Reference URI="res%2Fedje%2Fui_controls.edj">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>WeUJLwtXA+BNzRijuU0fPAj3xiaSc/EpX5uUxBDA3VA=</DigestValue>
 </Reference>
 <Reference URI="res%2Fimages%2Fetc.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -66,6 +70,10 @@
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>b34TWxnqQHNASWkcMYW0x3kZVdDXR6s8aNwLMpKu0RM=</DigestValue>
 </Reference>
+<Reference URI="res%2Ftest.txt">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>bZIp0rQMCPiwWdj/jZXlCZn8JRyeh7HZSDC2kWVoAEI=</DigestValue>
+</Reference>
 <Reference URI="shared%2Fres%2Febook.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
 <DigestValue>1d0oEZHqPn+QzNzGIHwj9ODby6x9ggFs9uOsav6jPNs=</DigestValue>
@@ -83,9 +91,9 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-LB9qlKnXUZi9R0mHwcAJo1yi3ND7N9nB17A5OYC8IQZuL7XBe1IIY6MccyCIZ6L5infXmfQSy5li
-6KQeXMeUtnI+cdGdBJ/Ba2aKuEvktrDGyzblrTzxC2PBb5NC/M6nv/7+7IZcSKWBV3dZgseQg0Cb
-c1DiCPctpeA7iGd/ulI=
+fLq5AMHup6GRE1Zepqt5++me/CdBQK4Lgg0X07Raw/6m03xZdsy057G25USybzn/gytt47+LnYqB
+kim9gLf2haZUMV1K/dxSdy2zrnYT/5xmxspeUgYQxvEb0QnXZd7AexnBSBchh6erFkQ09NTyVzPl
+ddKLxjQj8duPxtYYdwk=
 </SignatureValue>
 <KeyInfo>
 <X509Data>

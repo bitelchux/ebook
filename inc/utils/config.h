@@ -18,7 +18,7 @@
 #ifndef CONFIG_H_
 #define CONFIG_H_
 
-#define FM_PHONE_FOLDER    "/opt/usr"
+#define FM_PHONE_FOLDER    "/opt/usr/media"
 #define FM_MEMORY_FOLDER   "/opt/storage/sdcard"
 
 #define FM_PHONE_LABEL  "EbookReader"
