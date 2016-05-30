@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=360,user-scalable=no">
+    <meta charset="utf-8"/>
+    <meta name="description" content="file manager"/>
+    <title>File Manager</title>
+	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.min.css">
+	<link rel="stylesheet" type="text/css" href="./lib/tau/mobile/theme/default/tau.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/tau-custom.css"/>
+    <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+</head>
+
+<body>
+
+<div data-role="page" id="main">
+    <div class="ui-header" data-position="fixed">
+        <h1 id="mainTitle" class="white-space-pre"></h1>
+        <a id="homeBtn" class="ui-header-btn ui-header-btn-left ui-header-btn-icon btn-icon-home"></a>
+        <a id="levelUpBtn" class="ui-header-btn ui-header-btn-right ui-header-btn-icon btn-icon-back"></a>
+    </div>
+	
+    <div data-role="content">
+        <ul class="ui-listview" id="select-all-list">
+            <li id="navbar" class="ui-group-index"></li>
+            <li class="ui-li-anchor selectAll">
+                <input type="checkbox" name="tizen-check1-1" id="normal-check1" />
+                <a href="#">
+                    <label for="normal-check1" class="select_all">Select all</label>
+                </a>
+            </li>
+        </ul>
+        <ul id="fileList" class="ui-listview"></ul>
+    </div>
+
+    
+
+    <div id="alertPopup" class="ui-popup">
+        <div class="ui-popup-content popup-content-padding">
+            <p class="text"></p>
+        </div>
+        <div class="ui-popup-footer">
+            <a class="ui-btn" data-rel="back" data-inline="true">Ok</a>
+        </div>
+    </div>
+
+    <div id="infoPopup" class="ui-popup">
+        <div class="ui-popup-content popup-content-padding">
+            <img src="images/loader.png" width="60" height="60">
+            <p>Operation in progress.</p>
+        </div>
+    </div>
+
+    <div id="confirmPopup" class="ui-popup">
+        <div class="ui-popup-content popup-content-padding">
+            <p class="text"></p>
+        </div>
+        <div class="ui-popup-footer ui-grid-col-2">
+            <a class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+            <a class="ui-btn confirm" data-rel="back" data-inline="true">Ok</a>
+        </div>
+    </div>
+
+
+
+    <div id="addFolderPopup" class="ui-popup">
+        <div class="ui-popup-header">Add new folder</div>
+        <div class="ui-popup-content popup-content-padding">
+            <input id="newFolderName" type="text" value="New folder" class="newFolder" maxlength="85">
+        </div>
+        <div class="ui-popup-footer ui-grid-col-2">
+            <a id="cancelNewFolder" class="ui-btn" data-rel="back" data-inline="true">Cancel</a>
+            <a id="saveNewFolder" class="ui-btn" data-rel="back" data-inline="true">Save</a>
+        </div>
+    </div>
+
+    <div id="morePopup" class="ui-popup" data-overlay="false">
+        <ul class="ui-listview">
+            <li class="ui-li-anchor">
+                <a id="newFolderBtn" href="#" data-rel="back">New folder</a>
+            </li>
+            <li class="ui-li-anchor">
+                <a id="pasteActionBtn" href="#" data-rel="back">
+                    Paste to folder
+                </a>
+            </li>
+        </ul>
+    </div>
+    
+  
+    
+</div>
+<div data-role="page" id="pdf_page">
+    <canvas id="canvas"></canvas>
+</div>
+    <script src="js/pdf.js"></script>
+  	<script src="js/pdf.worker.js"></script>
+  	<script src="js/pdf_view.js"></script>
+    <script src="./lib/tau/mobile/js/jquery.min.js"></script>
+    <script src="./lib/tau/mobile/js/tau.js"></script>
+    <script type="text/javascript" src="./js/main.js"></script>
+    
+</body>
+</html>
