@@ -1,30 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>FileManagerWeb</name>
+	<name>ebook</name>
 	<comment></comment>
 	<projects>
 	</projects>
 	<buildSpec>
 		<buildCommand>
-			<name>org.tizen.web.privilege.nature.PrivilegeBuilder</name>
+			<name>org.eclipse.cdt.managedbuilder.core.genmakebuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>json.validation.builder</name>
-			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.tizen.web.project.builder.WebBuilder</name>
+			<name>org.eclipse.cdt.managedbuilder.core.ScannerConfigBuilder</name>
+			<triggers>full,incremental,</triggers>
 			<arguments>
 			</arguments>
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.tizen.web.privilege.nature.PrivilegeNature</nature>
-		<nature>json.validation.nature</nature>
-		<nature>org.eclipse.wst.jsdt.core.jsNature</nature>
-		<nature>org.tizen.web.project.builder.WebNature</nature>
+		<nature>org.eclipse.cdt.core.cnature</nature>
+		<nature>org.eclipse.cdt.core.ccnature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.managedBuildNature</nature>
+		<nature>org.eclipse.cdt.managedbuilder.core.ScannerConfigNature</nature>
 	</natures>
+	<filteredResources>
+		<filter>
+			<id>1458086685898</id>
+			<name></name>
+			<type>26</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-projectRelativePath-matches-false-false-*/.tpk</arguments>
+			</matcher>
+		</filter>
+		<filter>
+			<id>1458086685898</id>
+			<name></name>
+			<type>6</type>
+			<matcher>
+				<id>org.eclipse.ui.ide.multiFilter</id>
+				<arguments>1.0-name-matches-false-false-project_def.prop</arguments>
+			</matcher>
+		</filter>
+	</filteredResources>
 </projectDescription>
