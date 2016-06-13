@@ -182,8 +182,8 @@ var App = function App() {
      	  
            	PDFJS.getDocument(fullUri).then(function(pdf) {
            		  pdfFile = pdf;
-        		  openPage(pdfFile, 1);
-        		  $.mobile.changePage("#pdf_page",{
+           		  openPage(pdfFile, 1);
+         		  $.mobile.changePage("#pdf_page",{
         	    		allowSamePageTransition: true,
         	    		transition: "flow"	
         	    	});

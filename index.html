@@ -5,15 +5,15 @@
     <meta charset="utf-8"/>
     <meta name="description" content="file manager"/>
     <title>File Manager</title>
-	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.min.css">
-	<link rel="stylesheet" type="text/css" href="./lib/tau/mobile/theme/default/tau.css"/>
+	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.css"/>
+	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.circle.css"/> 	
     <link rel="stylesheet" type="text/css" href="./css/tau-custom.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
 </head>
 
 <body>
 
-<div data-role="page" id="main">
+<div class="ui-page" id="main">
     <div class="ui-header" data-position="fixed">
         <h1 id="mainTitle" class="white-space-pre"></h1>
     </div>
@@ -23,9 +23,11 @@
     </div>
 </div>
 
-<div data-role="page" id="pdf_page">
-    <canvas id="canvas"></canvas>
-</div>
+ <div class="ui-page" id="pdf_page">
+	 <canvas id="canvas"></canvas>
+	 </div>
+
+
 
     <script src="js/pdf.js"></script>
   	<script src="js/pdf.worker.js"></script>

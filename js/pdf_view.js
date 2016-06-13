@@ -10,6 +10,55 @@ if (!window.requestAnimationFrame) {
   })();
 }
 
+var px = 0, vx = 0,  ax = 0;
+var prev_vx= 0;
+var lastExecution=0;
+window.addEventListener('devicemotion', function(e) {
+	deviceMotionCallbackHandler(e);
+	
+}, true);
+
+function deviceMotionCallbackHandler(e) {		
+	 //Calculate the acceleration due to gravity
+	  var now = Date.now();
+	  if(lastExecution !==0 && now-lastExecution <1000) return;
+  ax = e.accelerationIncludingGravity.x *5 ;
+  vx = vx + ax;
+  vx = vx * 0.98;
+  var rate = e.rotationRate.beta;
+
+  if(vx - prev_vx > 15 && vx >= 0) {
+      openNextPage();
+  }
+  
+  if(vx - prev_vx < -15 && vx <= 0) { 
+	  openPrevPage();
+  }
+  
+  prev_vx = vx;
+  lastExecution = now;
+}
+// deviceMotionCallbackHandler ends	
+// deviceMotion ends
+
+document.addEventListener('tizenhwkey', function(e) {
+	if(e.keyName == "back") {
+        window.location.href='index.html';
+	}
+});
+/*
+document.addEventListener('tizenhwkey', function(element) {
+  if (element.keyName === 'back') {
+    try {
+    	document.getElementById("main").style.display("block");
+    	document.getElementById("pdf_page").style.display("none");
+        
+    	
+    } catch (error) {}
+  }
+});
+
+
 document.addEventListener('tizenhwkey', function(e) {
   if (e.keyName === 'back') {
     try {
@@ -20,7 +69,7 @@ document.addEventListener('tizenhwkey', function(e) {
     } catch (error) {}
   }
 });
-
+*/
 var canvas = document.getElementById('canvas');
 var context = canvas.getContext('2d');
 var pageElement = document.getElementById('pdf_page');
@@ -98,6 +147,12 @@ var openPrevPage = function() {
 var zoomed = false;
 var toggleZoom = function () {
   zoomed = !zoomed;
+  var viewport = $('meta[name="viewport"]');
+  if (zoomed) {
+      viewport.attr("content", "width=360, initial-scale=1"); 
+  } else {
+      viewport.attr("content", "width=360, initial-scale=10"); 
+  }
   openPage(pdfFile, currPageNumber);
 };
 
@@ -105,12 +160,12 @@ var fitScale = 1;
 
 var openPage = function(pdfFile, pageNumber) {
 	var scale = zoomed ? fitScale : 0.5;
-	var canvas = document.getElementById('canvas');
-	var context = canvas.getContext('2d');
+//	var canvas = document.getElementById('canvas');
+//	var context = canvas.getContext('2d');
 	pdfFile.getPage(pageNumber).then(function(page) {
-		viewport = page.getViewport(1);
+	   var viewport = page.getViewport(1);
 		if (zoomed) {
-      		var scale = pageElement.clientWidth / viewport.width;
+      		scale = pageElement.clientWidth / viewport.width;
       		viewport = page.getViewport(scale);
     	}
 
