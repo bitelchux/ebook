@@ -6,9 +6,10 @@
     <meta name="description" content="file manager"/>
     <title>File Manager</title>
 	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.css"/>
-	<link rel="stylesheet" type="text/css" href="./lib/tau/wearable/theme/default/tau.circle.css"/> 	
+	<link rel="stylesheet" media="all"  href="./lib/tau/wearable/theme/default/tau.circle.css"/> 	
     <link rel="stylesheet" type="text/css" href="./css/tau-custom.css"/>
     <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+
 </head>
 
 <body>
@@ -23,18 +24,35 @@
     </div>
 </div>
 
- <div class="ui-page" id="pdf_page">
+<div id="selectorPage" class="ui-page" data-enable-page-scroll="false">
+		<link rel="stylesheet" href="./css/customIndicator.css">
+		<div class="custom-indicator">
+				<div class="main-text"></div>
+				<div class="sub-text"></div>
+		</div>
+		<div id="selector" class="ui-selector">
+		
+		</div>
+
+</div>
+
+
+ <div class="ui-page" id="pdfPage">
 	 <canvas id="canvas"></canvas>
-	 </div>
-
-
-
-    <script src="js/pdf.js"></script>
-  	<script src="js/pdf.worker.js"></script>
-  	<script src="js/pdf_view.js"></script>
-    <script src="./lib/tau/mobile/js/jquery.min.js"></script>
-    <script src="./lib/tau/mobile/js/tau.js"></script>
-    <script type="text/javascript" src="./js/main.js"></script>
+ </div>
+   
+  	 <script src="./lib/tau/mobile/js/jquery.min.js"></script>
+   	 <script src="./lib/tau/mobile/js/tau.js"></script>
+   	 <script src="./lib/tau/wearable/js/tau.js"></script>
+   	 <script type="text/javascript" src="./js/main.js"></script>
+   	 
+   	 <script src="js/pdf.js"></script>
+  	 <script src="js/pdf.worker.js"></script>
+	 <script src="js/pdf_view.js"></script>
+   	 <script src="js/pdf_selector.js"></script>
+ 
+ 
+  	
     
 </body>
 </html>

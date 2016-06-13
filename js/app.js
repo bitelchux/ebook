@@ -179,15 +179,14 @@ var App = function App() {
          * @param {string} fullUri File URI
          */
         openFile: function App_openFile(fullUri) {
-     	  
-           	PDFJS.getDocument(fullUri).then(function(pdf) {
-           		  pdfFile = pdf;
-           		  openPage(pdfFile, 1);
-         		  $.mobile.changePage("#pdf_page",{
-        	    		allowSamePageTransition: true,
-        	    		transition: "flow"	
-        	    	});
-        		},function(r){alert("No pdf suc") });
+     	      PDFJS.getDocument(fullUri).then(function(pdf) {
+     	    	  pdfFile = pdf;
+     	    	  pdfSelector(pdf);
+     	    	  //openPage(pdfFile, 1);
+         		  tau.changePage("selectorPage",{
+    	    		transition: "flow"	
+       		  });
+    		},function(r){alert("No pdf suc") });
      	  
         	
         	/**
