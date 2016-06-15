@@ -3,7 +3,7 @@
     <tizen:application id="7kJQmvoIXK.FileManagerWeb" package="7kJQmvoIXK" required_version="2.3"/>
     <feature name="http://tizen.org/feature/screen.size.all"/>
     <icon src="icon.png"/>
-    <name>FileManagerWeb</name>
+    <name>EBook Reader</name>
     <tizen:privilege name="http://tizen.org/privilege/content.read"/>
     <tizen:privilege name="http://tizen.org/privilege/content.write"/>
     <tizen:privilege name="http://tizen.org/privilege/application.launch"/>

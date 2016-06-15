@@ -3,4 +3,5 @@
 #modify
 res/wgt/author-signature.xml
 res/wgt/signature1.xml
-res/wgt/css\tau-custom.css
+res/wgt/js\pdf_selector.js
+res/wgt/js\pdf_view.js

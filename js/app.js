@@ -186,7 +186,7 @@ var App = function App() {
          		  tau.changePage("selectorPage",{
     	    		transition: "flow"	
        		  });
-    		},function(r){alert("No pdf suc") });
+    		},function(r){alert("Not supported file type") });
      	  
         	
         	/**

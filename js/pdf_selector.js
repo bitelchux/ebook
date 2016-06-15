@@ -1,22 +1,23 @@
 var ePage = document.getElementById("selectorPage");  
 ePage.addEventListener('tizenhwkey', function(e) {
-	  if (e.keyName === 'back') {
-		 // window.removeEventListener('devicemotion', deviceMotionCallbackHandler(e), false);
-	    try {
-	    	selector.destroy();
-	    	pdfPage = document.getElementById("pdfPage");
-	    	pdfPage.style.display = "block";
-	    	tau.changePage("main");
-	    	//document.getElementById("selectorPage").style.display = 'none';
-	    	//tau.changePage("main");
-	    	//window.close();
-	    	//tau.back();
-	    	//$.mobile.changePage("#main",{
-	    	//	allowSamePageTransition: true,
-	    	//	transition: "fade"	
-		    //});
-		   } catch (error) {}
-		 }
+	if (e.keyName === 'back') {
+//	window.removeEventListener('devicemotion', deviceMotionCallbackHandler(e), false);
+	try {
+		selector.destroy();
+		pdfPage = document.getElementById("pdfPage");
+		pdfPage.style.display = "block";
+		tau.changePage("main");
+/*		document.getElementById("selectorPage").style.display = 'none';
+		tau.changePage("main");
+		window.close();
+		tau.back();
+		$.mobile.changePage("#main",{
+			allowSamePageTransition: true,
+			transition: "fade"	
+		});
+*/
+		} catch (error) {}
+	}
 });
 
 /*
@@ -40,7 +41,6 @@ ePage.addEventListener('tizenhwkey', function(e) {
 })();
 */
 
-
 function pdfSelector(pdf) {
 	var page = document.getElementById("selectorPage"),
 		selector = document.getElementById("selector"),
@@ -50,6 +50,10 @@ function pdfSelector(pdf) {
 		mainText = indicator.querySelector(".main-text"),
 		subText = indicator.querySelector(".sub-text"),
 		PDF = pdf;
+
+//	selector.setAttribute("data-item-selector", ".custom-selector");
+	selector.setAttribute("data-item-degree", 35);
+	selector.setAttribute("data-max-item-number", 10);
 
 	function onClick(event) {
 		var target = event.target,
@@ -62,7 +66,6 @@ function pdfSelector(pdf) {
 	    		allowSamePageTransition: true,
 	    		transition: "flow"	
  		 });
-	
 	
 		/*
 		 * Default indicator class selector is "ui-selector-indicator".
@@ -77,10 +80,10 @@ function pdfSelector(pdf) {
 	}
 
 	selector.addEventListener("selectoritemchange", function(event) {
-		var layerIndex = event.detail.layerIndex,
-			title = event.detail.title;
-		mainText.textContent = title;
-		subText.textContent = "Layer index " + layerIndex;
+//		var layerIndex = event.detail.layerIndex;
+		var title = event.detail.title;
+		mainText.textContent = "Page " + title;
+		subText.textContent = "Page Layer Index : " + layerIndex;
 	});
 
 	page.addEventListener("pagebeforeshow", function() {
@@ -111,15 +114,11 @@ function pdfSelector(pdf) {
 		var layer = 0;
 		var max = PDF.numPages; 
 		for(i = 0; i < max; i+=1){
-			if(Math.floor(max / 11) == Math.floor(i / 11)) {
-				addSelectorItem(selector,Math.floor(i/11)*11 + (max-i));
-			}
-			else {
-				addSelectorItem(selector,Math.floor(i/11)*11 + (11 - i % 11));
+			if(Math.floor(max / 10) == Math.floor(i / 10)) {
+				addSelectorItem(selector,Math.floor(i/10)*10 + (max - i));
+			} else {
+				addSelectorItem(selector,Math.floor(i/10)*10 + (10 - i % 10));
 			}
 		}
-		
 	};
-
-
 };
