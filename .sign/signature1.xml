@@ -20,7 +20,7 @@
 </Reference>
 <Reference URI="author-signature.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>w5VrEG7xft9arXIEpMz+dxsN8O1GIPLldzkhe5cMvso=</DigestValue>
+<DigestValue>WTc6gYYp+s4NQzvchsA9Vo7sYL/8fjnYN6/V78SgSVk=</DigestValue>
 </Reference>
 <Reference URI="config.xml">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -28,11 +28,11 @@
 </Reference>
 <Reference URI="css%2FcustomIndicator.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>4CWM8/uuHpGBx8oQ9W6Vic1LT7lT63InlWMm52st27E=</DigestValue>
+<DigestValue>mVnI5SZxNTFFx/SWhYAMToTVuRiY7H07CgnhR3u+eCc=</DigestValue>
 </Reference>
 <Reference URI="css%2Fstyle.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>9T0mgWWtVe/eLAPP4+LPbmapHWWfckaP/SvyzOjB/Cc=</DigestValue>
+<DigestValue>feylA/T/l+8aOzstrYx26a1OnMjPNB9fJacLxj5fDdc=</DigestValue>
 </Reference>
 <Reference URI="css%2Ftau-custom.css">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -112,7 +112,7 @@
 </Reference>
 <Reference URI="js%2Fapp.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>7GgrljNtImpHBNLI/aMA4a/irtl4xeluDMmIo6AOiHk=</DigestValue>
+<DigestValue>oJNTBsKmWg9s1QKBGnklyf5+jCA3Cw3yGxJ0FF/iwgc=</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.model.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -124,7 +124,7 @@
 </Reference>
 <Reference URI="js%2Fapp.ui.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>m7ETY/ds+ic8QoNfxMlJx2YQFYLi3+0AK7UkQnBeS5M=</DigestValue>
+<DigestValue>Zs5qkP21xR0xBokm0QRT1eQMeVdrLnBqkzgTDSXdFtc=</DigestValue>
 </Reference>
 <Reference URI="js%2Fapp.ui.templateManager.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -148,11 +148,11 @@
 </Reference>
 <Reference URI="js%2Fpdf_selector.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>dpTjmvh+ZdmwfSoA2uCMrfnwDLw/ESZTa+vfgLeVhr4=</DigestValue>
+<DigestValue>iWW2r951yvXKsIBCS7SvMSm0LZmxUkQmM7W07+WSi+0=</DigestValue>
 </Reference>
 <Reference URI="js%2Fpdf_view.js">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>oaWk4lsCGfyy+TI6Tsas0I2w7WqD088OuCLlURsQT8I=</DigestValue>
+<DigestValue>kQdf8LmAn4kEosPPmlSWlXIc8aP1kJcwICijjXCGhBg=</DigestValue>
 </Reference>
 <Reference URI="lib%2Ftau%2FLICENSE.Flora">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -1879,11 +1879,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-KZ+YBfL21s42oShKlmQ8iFJL4vATJ5LufP5MJ/eKtK1cZi4rlZ57mEpaVO45py5936jYmhgtZDdd
-9JMkd9wJY2sTHzPAdSDlZkaKWkke6tty15kYA5Q2wm8hXnyONClX0KI5i4QfCUZDTaa7Yb/nAErv
-eIWZRFFS15zd/Ysi0FY6XID2XIxbhD5bcgANHG17XsWi96gX5kMCLt0stofZrD5wEY5KxqjciFMI
-qV9NE4oWzZj5m+6M34F9HSeNNvKXOM97HZbgc4RXihNg3dbs4mTczR45T9k3B/eVPmRwxUczBESy
-GF9xJUeQMNuGCvTKrYfIKd5wSKdbyNBTzh0cHQ==
+COd1V3458KIkdK6JX2r+nH24ybX2LEHOrALVRS8U3pInj1F635Peb6yBOqIrakLOD6YaRJ+J258b
+3GffW6LKJQhhDyVSOym5eC2CEHw/2B8s+l91Kb3RLbRmek8z2ZfjZ7bmCRX4teGWHI0mqSPlI5B5
+ES5ijraVoz74Nbo8HuwpwvEiBIZT62QBnHztfdO9oNfx1Bqe8vVV3n7Yjq8ji3WBcE15/QktAr+n
+LJi3DItwgOqpnr1K3BG0eZ6pHz+HNEBbwfc1Fd4lcilOH0GCOO3b42+Sng5TWrgsSsXZHrH0D6xe
+MzWc3t/ANw9X3Jcbz0O2qvFDM/XpKxPM351IhA==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

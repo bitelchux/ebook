@@ -29,9 +29,10 @@
 }
 .custom-indicator .main-text {
 	position: relative;
+	padding-bottom: 5px;
 	height: 60%;
-	line-height: 135px;
-	font-size: 20px;
+	line-height: 100px;
+	font-size: 30px;
 	color: #ffffff;
 }
 .custom-indicator .sub-text {

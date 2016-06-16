@@ -181,7 +181,7 @@ var App = function App() {
         openFile: function App_openFile(fullUri) {
      	      PDFJS.getDocument(fullUri).then(function(pdf) {
      	    	  pdfFile = pdf;
-     	    	  pdfSelector(pdf);
+     	    	  pdfSelector(pdf,fullUri);
      	    	  isFileOn = false; 
      	    	  tau.changePage("selectorPage",{
          			allowSamePageTransition: true

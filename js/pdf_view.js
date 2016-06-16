@@ -55,6 +55,7 @@ var isPdfOn = false;
 pageElement.addEventListener("pagebeforeshow", function() {
 	isPdfOn = true;
 	pageElement.style.display = 'block';
+	document.addEventListener("rotarydetent",pdfRotaryEvent,false);
 });
 
 
@@ -78,7 +79,7 @@ pageElement.addEventListener('touchstart', function(e) {
 
 pageElement.addEventListener('touchmove', function(e) {
 	if (pageElement.scrollLeft === 0 ||
-			pageElement.scrollLeft === pageElement.scrollWidth - page.clientWidth) {
+			pageElement.scrollLeft === pageElement.scrollWidth - pageElement.clientWidth) {
 				reachedEdge = true;
 			} else {
 				reachedEdge = false;
@@ -110,14 +111,30 @@ pageElement.addEventListener('touchend', function(e) {
 	touchDown = false;
 });
 
-window.addEventListener("rotarydetent", function(e) {
-	if (!zoomed) {
-		if (e.detail.direction == "CW")
-			openNextPage();
-		else
-			openPrevPage();
+function pdfRotaryEvent(e) {
+	if (e.detail.direction == "CW"){
+		if(scale > 2){
+			scale = 2;
+			zoomed = false;
+		}
+		else{
+			scale += 0.5;
+			zoomed = true; 
+		}
 	}
-});
+	else{
+		if(scale <= 0.5){ 
+			zoomed = false;
+			scale = 0.5;
+		}
+		else{
+			scale -= 0.5;
+		}
+	}
+	openPage(pdf,currPageNumber);
+}
+
+
 
 var pdfFile;
 var currPageNumber = 1;
@@ -140,33 +157,30 @@ var openPrevPage = function() {
 
 var zoomed = false;
 var toggleZoom = function () {
-	zoomed = !zoomed;
-	var viewport = $('meta[name="viewport"]');
-	if (zoomed) {
-		viewport.attr("content", "width=360, initial-scale=1"); 
-	} else {
-		viewport.attr("content", "width=360, initial-scale=10"); 
+	if(zoomed) {
+		zoomed = false;
+		scale = 0.5;
+	}
+	else {
+		zoomed = true;
+		scale = 2;
 	}
 	openPage(pdfFile, currPageNumber);
 };
 
-var fitScale = 1;
+var scale = 0.5;
 var renderTask;
 var openPage = function(pdfFile, pageNumber) {
+	currPageNumber = pageNumber;
 	pdf = pdfFile;
-	var scale = zoomed ? fitScale : 1;
 	var canvas = document.getElementById('canvas');
 	var context = canvas.getContext('2d');
 	pdfFile.getPage(pageNumber).then(function(page) {
 		if(renderTask){
 			renderTask.cancel();
 		}
-		viewport = page.getViewport(1);
-		if (!zoomed) {
-			var scale = pageElement.clientWidth / viewport.width;
-			viewport = page.getViewport(scale);
-    	}
-
+		viewport = page.getViewport(scale);
+	
 		canvas.height = viewport.height;
 		canvas.width = viewport.width;
 

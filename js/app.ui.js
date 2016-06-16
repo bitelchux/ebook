@@ -53,8 +53,6 @@ function onTizenhwkey(e) {
     		isFileOn = true;
     		isSelectorOn = false; 
     		hasLoaded = false;
-    		selectorComponent = document.getElementById('selector');
-    		//clearSelector();
     		tau.changePage("main",{allowSamePageTransition: true});
     	}
     	else if(isPdfOn){
@@ -65,6 +63,7 @@ function onTizenhwkey(e) {
     		ctx = canvas.getContext('2d');
     		ctx.clearRect(0, 0, canvas.width, canvas.height);
     		pdfPage.style.display = 'none';
+    		document.removeEventListener("rotarydetent", pdfRotaryEvent,false);
     		tau.changePage("selectorPage",{allowSamePageTransition: true});
     	}
     	else{

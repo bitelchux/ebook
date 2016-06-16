@@ -5,20 +5,18 @@ function clearSelector(){
 	var selectorElement = document.getElementById("selector"),
 		page = document.getElementById("selectorPage");
 	child = selectorElement.childNodes;
+	length = child.length;
+	alert("Child Number" + child.length);
 	var i = 0;
-	for(i = 0;i < child.length; i+=1){
+	for(i = length - 1;i >= 0; i--){
+		alert("remove" + i);
 		selectorElement.removeChild(child[i]);
 	}
-		
-	page.removeChild(selectorElement);
-	newSelector = document.createElement("DIV");
-	newSelector.setAttribute('class', 'ui-selector');
-	newSelector.id = "selector";
-	page.appendChild(newSelector);
+
 }
 
 
-function pdfSelector(pdf) {
+function pdfSelector(pdf,fullPath) {
 
 	var page = document.getElementById("selectorPage"),
 		selector = document.getElementById("selector"),
@@ -28,30 +26,38 @@ function pdfSelector(pdf) {
 		mainText = indicator.querySelector(".main-text"),
 		subText = indicator.querySelector(".sub-text"),
 		PDF = pdf;
-
+		filename = fullPath.substring(fullPath.lastIndexOf('/')+1);
+		
 		selector.setAttribute("data-item-degree", 35);
 		selector.setAttribute("data-max-item-number", 10);
-
+	
+		function selectorChange(event) {
+			var number = event.detail.title,
+				itemId = event.detail.id;
+			mainText.textContent = "Page";
+		}
+		
+		
+		
 	function onClick(event) {
 		isSelectorOn = false; 
 		var target = event.target,
 			number = target.getAttribute("data-title");
-			openPage(PDF,Number(number));
-			tau.changePage("pdfPage",{
-				allowSamePageTransition: true,
-				transition: "flow"	
-			});
+			if(number > 0 && number <= totalNumber){
+				selector.removeEventListener("selectoritemchange",selectorChange,false);
+				openPage(PDF,Number(number));
+				tau.changePage("pdfPage",{
+					allowSamePageTransition: true,
+					transition: "flow"	
+				});
+			}
 
 	}
 
-	selector.addEventListener("selectoritemchange", function(event) {
-		var number = event.detail.title,
-			itemId = event.detail.id;
-		mainText.textContent = "Page " + number;
-		subText.textContent = itemId;
-	});
+	
 
 	page.addEventListener("pagebeforeshow", function() {
+		selector.addEventListener("selectoritemchange",selectorChange,false);
 		isSelectorOn = true;
 		if(!hasLoaded){
 			onpage();
@@ -69,6 +75,7 @@ function pdfSelector(pdf) {
 	});
 	
 	function onpage(){
+		subText.textContent = filename;
 		totalNumber = pdf.numPages;
 		var	selector = document.getElementById("selector");
 		var addSelectorItem = function(component, number){
@@ -76,7 +83,6 @@ function pdfSelector(pdf) {
 			x.setAttribute('class','ui-item');
 			x.setAttribute('data-title',number);
 			x.id = number;
-			x.innerHTML = number;
 			component.appendChild(x);
 		};
 		var i = 0;
