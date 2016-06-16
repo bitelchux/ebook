@@ -26,12 +26,12 @@ function deviceMotionCallbackHandler(e) {
 	vx = vx * 0.98;
 	var rate = e.rotationRate.beta;
 
-	if(vx - prev_vx > 15 && vx >= 0) {
-		openNextPage();
+	if(vx - prev_vx > 15) {
+		openPrevPage();
 	}
   
-	if(vx - prev_vx < -15 && vx <= 0) { 
-		openPrevPage();
+	if(vx - prev_vx < -15) { 
+		openNextPage();
 	}
   
 	prev_vx = vx;
@@ -48,26 +48,16 @@ var reachedEdge = false;
 var touchStart = null;
 var touchDown = false;
 
-document.addEventListener('tizenhwkey', function(e){
-	if (e.keyName === 'back'){
-		pageElement.style.display = "none";
-		pdfSelector(pdf);
-		tau.changePage("selectorPage");
-	}
-});
+var isPdfOn = false;
+
+
 
 pageElement.addEventListener("pagebeforeshow", function() {
-	pdfPage.style.display = "block";
+	isPdfOn = true;
+	pageElement.style.display = 'block';
 });
 
-pageElement.addEventListener("pagebeforehide", function() {
-//	document.removeEventListener("tizenhwkey", pdfBackClicked, false);
-	pageElement.removeChild(canvas);
-	var newCanv = document.createElement('canvas');
-	newCanv.id = 'canvas';
-	pageElement.appendChild(newCanv);
-	tau.changePage("selectorPage");
-});
+
 
 var lastTouchTime = 0;
 pageElement.addEventListener('touchstart', function(e) {

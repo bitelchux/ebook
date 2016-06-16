@@ -182,10 +182,10 @@ var App = function App() {
      	      PDFJS.getDocument(fullUri).then(function(pdf) {
      	    	  pdfFile = pdf;
      	    	  pdfSelector(pdf);
-     	    	  //openPage(pdfFile, 1);
-         		  tau.changePage("selectorPage",{
-    	    		transition: "flow"	
-       		  });
+     	    	  isFileOn = false; 
+     	    	  tau.changePage("selectorPage",{
+         			allowSamePageTransition: true
+    	    	  });
     		},function(r){alert("Not supported file type") });
      	  
         	

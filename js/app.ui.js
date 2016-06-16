@@ -27,7 +27,51 @@ function Ui() {
 
     return;
 }
-
+var isFileOn = true; 
+function onTizenhwkey(e) {
+    var uri = $('#navbar span+span').attr('uri'),
+    	isFile = isFileOn,
+    	isSelector = isSelectorOn,
+    	isPdf = isPdfOn;
+    	
+    if (e.keyName === 'back') {
+    	if(isFileOn){
+    		if (!uri) {
+    			if (app.ui.root === false) {
+    				app.ui.root = true;
+    				$('#fileList').empty();
+    				app.ui.appendFolderRow(0, 'root');
+    				app.currentPath = 'root';
+    			} else {
+    				tizen.application.getCurrentApplication().exit();
+    			}
+    		} else if (!app.ui.root) {
+    			app.goLevelUp();
+    		}
+    	}
+    	else if(isSelectorOn){
+    		isFileOn = true;
+    		isSelectorOn = false; 
+    		hasLoaded = false;
+    		selectorComponent = document.getElementById('selector');
+    		//clearSelector();
+    		tau.changePage("main",{allowSamePageTransition: true});
+    	}
+    	else if(isPdfOn){
+       		isSelectorOn = true;
+    		isPdfOn = false;
+    		canvas = document.getElementById('canvas');
+    		pdfPage = document.getElementById('pdfPage');
+    		ctx = canvas.getContext('2d');
+    		ctx.clearRect(0, 0, canvas.width, canvas.height);
+    		pdfPage.style.display = 'none';
+    		tau.changePage("selectorPage",{allowSamePageTransition: true});
+    	}
+    	else{
+    		tizen.application.getCurrentApplication().exit();
+    	}
+    }
+}
 (function start() { // strict mode wrapper
     'use strict';
 
@@ -186,31 +230,7 @@ function Ui() {
                     }
                 });
 
-            window.addEventListener('tizenhwkey', function onTizenhwkey(e) {
-                var uri = $('#navbar span+span').attr('uri');
-
-                if (e.keyName === 'back') {
-                    if (self.isOperationInProgress()) {
-                        return;
-                    }
-                    if (tau.engine.getRouter().hasActivePopup()) {
-                        window.history.back();
-                    } else if (self.editMode === true) {
-                        self.handleCancelEditAction();
-                    } else if (!uri) {
-                        if (app.ui.root === false) {
-                            app.ui.root = true;
-                            $('#fileList').empty();
-                            app.ui.appendFolderRow(0, 'root');
-                            app.currentPath = 'root';
-                        } else {
-                            tizen.application.getCurrentApplication().exit();
-                        }
-                    } else if (!app.ui.root) {
-                        app.goLevelUp();
-                    }
-                }
-            });
+            window.addEventListener('tizenhwkey',onTizenhwkey);
 
             $('#newFolderBtn').click(function onClick() {
                 tau.widget.Popup(document.getElementById('addFolderPopup'))
